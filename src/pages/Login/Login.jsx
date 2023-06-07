@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext, useEffect, useState } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+//import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -15,9 +15,9 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || "/";
 
-    useEffect(() => {
-        loadCaptchaEnginge(6);
-    }, [])
+    // useEffect(() => {
+    //     loadCaptchaEnginge(6);
+    // }, [])
 
     const handleLogin = event => {
         event.preventDefault();
@@ -42,15 +42,15 @@ const Login = () => {
             })
     }
 
-    const handleValidateCaptcha = (e) => {
-        const user_captcha_value = e.target.value;
-        if (validateCaptcha(user_captcha_value)) {
-            setDisabled(false);
-        }
-        else {
-            setDisabled(true)
-        }
-    }
+    // const handleValidateCaptcha = (e) => {
+    //     const user_captcha_value = e.target.value;
+    //     if (validateCaptcha(user_captcha_value)) {
+    //         setDisabled(false);
+    //     }
+    //     else {
+    //         setDisabled(true)
+    //     }
+    // }
 
     return (
         <>
@@ -80,13 +80,13 @@ const Login = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
-                            <div className="form-control">
+                            {/* <div className="form-control">
                                 <label className="label">
                                     <LoadCanvasTemplate />
                                 </label>
                                 <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" />
 
-                            </div>
+                            </div> */}
                             {/* TODO: make button disabled for captcha */}
                             <div className="form-control mt-6">
                                 <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
