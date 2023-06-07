@@ -2,7 +2,7 @@ import React from 'react';
 import cat from '../../../assets/cat.jpg';
 const SiteDetails = () => {
     return (
-        <div className='px-5'>
+        <div className='px-5 my-10'>
             <h1 className='font-poppins text-3xl text-pink-500 font-semibold my-14'>What is Learnlingo ?</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
                 <div className='space-y-8 mt-6 font-poppins text-lg'>
@@ -47,7 +47,7 @@ const SiteDetails = () => {
                         <div className='font-poppins space-y-4 mt-8'>
                             <h2 className='text-2xl font-semibold text-blue-400'>Language books</h2>
                             <p className='text-lg'>
-                                Language books for kids motivate children to read the beginner and advanced level stories.
+                                Language books for students motivate student to read the beginner and advanced level stories.
                             </p>
                         </div>
                     </div>

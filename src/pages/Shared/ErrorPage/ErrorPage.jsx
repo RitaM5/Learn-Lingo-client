@@ -12,7 +12,7 @@ const ErrorPage = () => {
                     </p>
                     <Link
                         to='/'
-                        className='px-8 my-4 py-3 rounded-md font-semibold text-lg bg-blue-600 text-white'
+                        className='px-8 my-4 w-44 mx-auto flex justify-center py-3 rounded-md font-semibold text-lg bg-red-400 text-white'
                     >
                         Back to home
                     </Link>
