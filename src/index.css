@@ -5,6 +5,11 @@
 @tailwind utilities;
 
 .my-container{
-  @apply py-5 mx-auto sm:max-w-full md:max-w-full lg:max-w-screen-xl 
+  @apply  mx-auto sm:max-w-full md:max-w-full lg:max-w-screen-xl 
 }
-
+.thumbs-wrapper{
+  @apply flex justify-center
+}
+.slider li img{
+  @apply h-[750px]
+}
