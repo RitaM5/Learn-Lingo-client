@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.my-container{
+  @apply py-5 mx-auto sm:max-w-full md:max-w-full lg:max-w-screen-xl 
+}
+

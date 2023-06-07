@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily:{
+      poppins: ["poppins", "sans-serif"],
+      cinzel: ["Cinzel", "serif"]
+    }
   },
   plugins: [require("daisyui")],
 }
