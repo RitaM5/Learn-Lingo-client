@@ -5,7 +5,7 @@ import Footer from '../pages/Shared/Footer/Footer';
 
 const Main = () => {
     return (
-        <div className=''>
+        <div className='overflow-hidden'>
             <NavBar></NavBar>
             <Outlet></Outlet>
             <ScrollRestoration/>

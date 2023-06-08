@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
@@ -6,16 +6,17 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import { FaRegEye } from 'react-icons/fa';
 
 const SignUp = () => {
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [show, setShow] = useState(false)
     const navigate = useNavigate();
 
     const onSubmit = data => {
-
-        createUser(data.email, data.password)
+        createUser(data.email, data.password, data.confirmPassword)
             .then(result => {
 
                 const loggedUser = result.user;
@@ -46,22 +47,20 @@ const SignUp = () => {
                                 }
                             })
 
-
-
                     })
                     .catch(error => console.log(error))
             })
     };
-
+    const password = watch('password', '');
     return (
         <>
             <Helmet>
                 <title>Learn Lingo | Sign Up</title>
             </Helmet>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse my-28">
+            <div className="hero min-h-screen bg-base-200 my-container">
+                <div className="hero-content flex-col lg:flex-row-reverse my-28 px-28">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Sign up now!</h1>
+                        <h1 className="text-5xl font-bold text-pink-500 font-poppins">Sign up now!</h1>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -87,16 +86,19 @@ const SignUp = () => {
                                 <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
                                 {errors.email && <span className="text-red-600">Email is required</span>}
                             </div>
-                            <div className="form-control font-poppins">
+                            <div className="form-control font-poppins relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password"  {...register("password", {
+                                <input type={show ? "text" : "password"}  {...register("password", {
                                     required: true,
                                     minLength: 6,
                                     maxLength: 15,
                                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
                                 })} placeholder="password" className="input input-bordered" />
+                                <p className=' absolute right-0 mt-12 mr-3 text-lg' onClick={() => setShow(!show)}>
+                                    <FaRegEye />
+                                </p>
                                 {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                                 {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 15 characters</p>}
@@ -104,21 +106,24 @@ const SignUp = () => {
                             </div>
                             <div className="form-control font-poppins">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="password"  {...register("confirmPassword", {
+                                <input type={show ? "text" : "password"}  {...register("confirmPassword", {
                                     required: true,
-                                    minLength: 6,
-                                    maxLength: 15,
-                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                                    validate: (value) =>
+                                        value === password || 'The passwords do not match',
                                 })} placeholder="confirm password" className="input input-bordered" />
-                                {data.password !== data.confirmPassword && <p className="text-red-600">Your password did not match</p>}
+                                <p className=' absolute right-0 mt-12 mr-11 text-lg' onClick={() => setShow(!show)}>
+                                    <FaRegEye />
+                                </p>
+                                {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
+                                {errors.confirmPassword && <p className="text-red-600">{errors.confirmPassword.message}</p>}
                             </div>
                             <div className="form-control mt-3 font-poppins">
                                 <input className="btn bg-green-500 text-white" type="submit" value="Sign Up" />
                             </div>
                             <p className='font-poppins'><small className=''>Already have an account ? <Link to="/login">Login</Link></small></p>
-                        </form>            
+                        </form>
                         <SocialLogin></SocialLogin>
                     </div>
                 </div>

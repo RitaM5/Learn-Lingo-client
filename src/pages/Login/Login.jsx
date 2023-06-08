@@ -1,34 +1,27 @@
 import React from 'react';
 import { useContext, useEffect, useState } from 'react';
-//import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2'
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import { FaRegEye } from 'react-icons/fa';
+import { useForm } from 'react-hook-form';
 
 const Login = () => {
-    const [disabled, setDisabled] = useState(true);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { signIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [show, setShow] = useState(false)
     const navigate = useNavigate();
     const location = useLocation();
-
     const from = location.state?.from?.pathname || "/";
-
-    // useEffect(() => {
-    //     loadCaptchaEnginge(6);
-    // }, [])
-
-    const handleLogin = event => {
-        event.preventDefault();
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(email, password);
-        signIn(email, password)
+    const onSubmit = data => {
+        signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                reset();
                 Swal.fire({
                     title: 'User Login Successful.',
                     showClass: {
@@ -39,61 +32,54 @@ const Login = () => {
                     }
                 });
                 navigate(from, { replace: true });
-            })
+            }).catch(error => setError(error))
     }
-
-    // const handleValidateCaptcha = (e) => {
-    //     const user_captcha_value = e.target.value;
-    //     if (validateCaptcha(user_captcha_value)) {
-    //         setDisabled(false);
-    //     }
-    //     else {
-    //         setDisabled(true)
-    //     }
-    // }
-
+    /*     useEffect(() => {
+            if (user) {
+                navigate(from)
+            }
+        }, [user]); */
     return (
         <>
             <Helmet>
-                <title>Bistro Boss | Login</title>
+                <title>Learn Lingo | Login</title>
             </Helmet>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col md:flex-row-reverse">
-                    <div className="text-center md:w-1/2 lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+            <div className="hero min-h-screen bg-base-200 my-container">
+                <div className="hero-content flex-col gap-6 lg:flex-row-reverse mx-auto my-28 ">
+                    <div className="text-center lg:text-left w-full mt-3">
+                        <img className='rounded-3xl flex-shrink-0 ' src="https://media.tenor.com/p0G_bmA2vSYAAAAd/login.gif" alt="" srcset="" />
                     </div>
-                    <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleLogin} className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div>
-                            {/* <div className="form-control">
-                                <label className="label">
-                                    <LoadCanvasTemplate />
-                                </label>
-                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" />
-
-                            </div> */}
-                            {/* TODO: make button disabled for captcha */}
-                            <div className="form-control mt-6">
-                                <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
-                            </div>
-                        </form>
-                        <p><small>New Here? <Link to="/signup">Create an account</Link> </small></p>
-                        <SocialLogin></SocialLogin>
+                    <div className='card flex-shrink-0 w-full max-w-md'>
+                        <h1 className="text-3xl font-bold text-pink-500 font-poppins mb-3">Login now!</h1>
+                        <div className="shadow-2xl bg-base-100 rounded-3xl">
+                            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                                <div className="form-control font-poppins">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
+                                    {errors.email && <span className="text-red-600">Email is required</span>}
+                                </div>
+                                <div className="form-control font-poppins relative">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input type={show ? "text" : "password"}  {...register("password", {
+                                        required: true,
+                                    })} placeholder="password" className="input input-bordered" />
+                                    <p className=' absolute right-0 mt-12 mr-3 text-lg' onClick={() => setShow(!show)}>
+                                        <FaRegEye />
+                                    </p>
+                                    {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
+                                    <p className="text-red-600">{error.message}</p>
+                                </div>
+                                <div className="form-control mt-3 font-poppins">
+                                    <input className="btn bg-green-500 text-white" type="submit" value="Login" />
+                                </div>
+                                <p className='font-poppins'><small className=''>Don't have an account ? <Link to="/signup">Signup</Link></small></p>
+                            </form>
+                            <SocialLogin></SocialLogin>
+                        </div>
                     </div>
                 </div>
             </div>
