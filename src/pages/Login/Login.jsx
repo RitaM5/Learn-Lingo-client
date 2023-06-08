@@ -55,14 +55,14 @@ const Login = () => {
                             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                                 <div className="form-control font-poppins">
                                     <label className="label">
-                                        <span className="label-text">Email</span>
+                                        <span className="label-text text-lg">Email</span>
                                     </label>
                                     <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
                                     {errors.email && <span className="text-red-600">Email is required</span>}
                                 </div>
                                 <div className="form-control font-poppins relative">
                                     <label className="label">
-                                        <span className="label-text">Password</span>
+                                        <span className="label-text text-lg">Password</span>
                                     </label>
                                     <input type={show ? "text" : "password"}  {...register("password", {
                                         required: true,
@@ -74,7 +74,7 @@ const Login = () => {
                                     <p className="text-red-600">{error.message}</p>
                                 </div>
                                 <div className="form-control mt-3 font-poppins">
-                                    <input className="btn bg-green-500 text-white" type="submit" value="Login" />
+                                    <input className="btn bg-pink-500 text-white" type="submit" value="Login" />
                                 </div>
                                 <p className='font-poppins'><small className=''>Don't have an account ? <Link to="/signup">Signup</Link></small></p>
                             </form>
