@@ -11,21 +11,19 @@ const PopularClasses = () => {
             })
     }, []);
     return (
-        <div>
-            <h1>Popular Classes</h1>
+        <div className='my-16'>
+            <h1 className='text-center text-3xl font-poppins font-semibold text-pink-500 my-12'>Popular Classes</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-5'>
                 {courses.map((course) => (
-                    <div className="card w-full bg-base-100 shadow-xl">
+                    <div className="card w-full bg-base-100 shadow-xl font-poppins">
                         <figure><img src={course?.image} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">
                                 {course?.className}
                                 <div className="badge badge-secondary">popular</div>
                             </h2>
-                            <p>{course.instructorName}</p>
-                            <div className="card-actions justify-end">
-                                <div className="badge badge-outline">{course?.enrolled}</div>
-                            </div>
+                            <p><span className='text-lg font-semibold'>Instructor Name:</span> {course.instructorName}</p>
+                            <p className=""><span className='text-lg font-semibold'>Enrolled:</span> {course?.enrolled}</p>
                         </div>
                     </div>
                 ))}
