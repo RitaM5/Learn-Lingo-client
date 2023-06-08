@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Banner from '../Banner/Banner';
 import SiteDetails from './SiteDetails';
+import PopularClasses from './PopularClasses';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
                 <title>Learn Lingo | Home</title>
             </Helmet>
             <Banner></Banner>
+            <PopularClasses></PopularClasses>
             <SiteDetails></SiteDetails>
         </div>
     );

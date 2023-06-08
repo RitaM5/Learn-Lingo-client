@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from "react";
-import { FaGoogle, FaGooglePlus } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
@@ -16,8 +16,8 @@ const SocialLogin = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
-                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('http://localhost:5000/users', {
+                const saveUser = { name: loggedInUser?.displayName, email: loggedInUser?.email, photoURL: loggedInUser?.photoURL }
+                fetch('https://summer-camp-server-dusky.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
