@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const PopularClasses = () => {
     const [courses, setCourses] = useState([]);
+    const [axiosSecure] = useAxiosSecure()
     useEffect(() => {
-        fetch('https://summer-camp-server-dusky.vercel.app/classes')
-            .then(res => res.json())
-            .then(data => {
-                setCourses(data)
-                console.log(data);
+        axiosSecure.get('/classes')
+            .then(res => {
+                setCourses(res.data)
             })
     }, []);
     return (
         <div>
             <h1>Popular Classes</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-5'>
                 {courses.map((course) => (
                     <div className="card w-full bg-base-100 shadow-xl">
                         <figure><img src={course?.image} alt="Shoes" /></figure>
@@ -24,8 +24,7 @@ const PopularClasses = () => {
                             </h2>
                             <p>{course.instructorName}</p>
                             <div className="card-actions justify-end">
-                                <div className="badge badge-outline">{course.enrolled}</div>
-                                <div className="badge badge-outline">Products</div>
+                                <div className="badge badge-outline">{course?.enrolled}</div>
                             </div>
                         </div>
                     </div>
