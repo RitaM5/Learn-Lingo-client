@@ -15,8 +15,8 @@ const PopularInstructor = () => {
             <h1 className='text-center text-3xl font-poppins font-semibold text-pink-500 my-12'>Popular Instructors</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-5'>
                 {instructors.map((instructor) => (
-                    <div className="card w-full bg-base-100 shadow-xl font-poppins">
-                        <figure><img src={instructor?.instructorImage} alt="Shoes" /></figure>
+                    <div className="card w-full bg-blue-100 shadow-xl font-poppins">
+                        <figure><img className='w-full h-60' src={instructor?.instructorImage} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">
                                 {instructor?.instructorName}

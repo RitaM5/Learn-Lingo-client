@@ -1,16 +1,19 @@
 import React from 'react';
 
 import { useContext } from "react";
-import { FaShoppingCart } from 'react-icons/fa';
+//import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useAdmin from '../../../hooks/useAdmin';
+import useInstructor from '../../../hooks/useInstructor';
 // import useCart from "../../../hooks/useCart";
-// import useAdmin from "../../../hooks/useAdmin";
+
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
     // const [cart] = useCart();
-    // const [isAdmin] = useAdmin();
+     const [isAdmin] = useAdmin();
+     const [isInstructor] = useInstructor();
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -21,10 +24,12 @@ const NavBar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructor</Link></li>
         <li><Link to="/classes">Classes</Link></li>
-        {/* {
+        {
             isAdmin ? <li><Link to="/dashboard/adminhome">Dashboard</Link></li> :
+           isInstructor ? <li><Link to="/dashboard/userhome">Dashboard</Link></li> :
             <li><Link to="/dashboard/userhome">Dashboard</Link></li> 
-        } */}
+        }
+        
         <li>
             {/* <Link to="/dashboard/mycart">
                 <button className="btn gap-2">
@@ -42,7 +47,7 @@ const NavBar = () => {
         }
         {
             user && <p className='tooltip' data-tip={user.displayName} >
-                <img className='w-10 rounded-full md:hidden hidden lg:block' src={user.photoURL
+                <img className='w-10 h-10 rounded-full md:hidden hidden lg:block' src={user.photoURL
                 } alt='user image' ></img>
             </p>
         }
