@@ -26,7 +26,7 @@ const NavBar = () => {
         <li><Link to="/classes">Classes</Link></li>
         {
             isAdmin ? <li><Link to="/dashboard/adminhome">Dashboard</Link></li> :
-           isInstructor ? <li><Link to="/dashboard/userhome">Dashboard</Link></li> :
+           isInstructor ? <li><Link to="/dashboard/instructorhome">Dashboard</Link></li> :
             <li><Link to="/dashboard/userhome">Dashboard</Link></li> 
         }
         
