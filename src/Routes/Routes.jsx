@@ -14,6 +14,9 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import PrivateRoute from "../Routes/PrivateRoute"
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import AddClasses from "../pages/Dashboard/InstructorHome/AddClasses";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -53,18 +56,22 @@ export const router = createBrowserRouter([
             //admin routes
             {
                 path: 'adminhome',
-                element: <AdminHome></AdminHome>
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
                 path: 'manageusers',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
             //instructor
             {
                 path: 'instructorhome',
-                element: <InstructorHome></InstructorHome>
+                element: <InstructorRoute><InstructorHome></InstructorHome></InstructorRoute>
             },
-            
+
+            {
+                path: 'addclasses',
+                element: <InstructorRoute><AddClasses></AddClasses></InstructorRoute>
+            },
         ]
     }
 ]);
