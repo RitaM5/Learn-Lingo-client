@@ -6,7 +6,6 @@ import Home from "../pages/Home/Home/Home";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
-import PopularClasses from "../pages/Home/Home/PopularClasses";
 import Classes from "../pages/Home/Classes/Classes";
 import Instructor from "../pages/Home/Instructor/Instructor";
 import Dashboard from "../Layout/Dashboard";
@@ -14,7 +13,7 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
-
+import PrivateRoute from "../Routes/PrivateRoute"
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -45,24 +44,27 @@ export const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: 'userhome',
                 element: <UserHome></UserHome>
             },
+            //admin routes
             {
                 path: 'adminhome',
                 element: <AdminHome></AdminHome>
             },
             {
-                path: 'instructorhome',
-                element: <InstructorHome></InstructorHome>
-            },
-            {
                 path: 'manageusers',
                 element: <ManageUsers></ManageUsers>
             },
+            //instructor
+            {
+                path: 'instructorhome',
+                element: <InstructorHome></InstructorHome>
+            },
+            
         ]
     }
 ]);
