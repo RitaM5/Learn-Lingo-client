@@ -67,7 +67,7 @@ const Login = () => {
                                     <input type={show ? "text" : "password"}  {...register("password", {
                                         required: true,
                                     })} placeholder="password" className="input input-bordered" />
-                                    <p className=' absolute right-0 mt-12 mr-3 text-lg' onClick={() => setShow(!show)}>
+                                    <p className=' absolute right-0 mt-14 mr-3 text-lg' onClick={() => setShow(!show)}>
                                         <FaRegEye />
                                     </p>
                                     {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
