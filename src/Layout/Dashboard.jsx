@@ -27,7 +27,8 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/manageclasses" className='md:text-lg font-semibold text-white my-1'><FaBookReader className='text-black'></FaBookReader> Manage Classes</NavLink></li>
                             </> : isInstructor ? <>
                                 <li><NavLink to="/dashboard/instructorhome" className='md:text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> Instructor Home</NavLink></li>
-                                <li><NavLink to="/dashboard/addclasses" className='md:text-lg font-semibold text-white my-4'><FaAddressBook className='text-black'></FaAddressBook> Add Classes</NavLink> </li>
+                                <li><NavLink to="/dashboard/addclasses" className='md:text-lg font-semibold text-white mt-4'><FaAddressBook className='text-black'></FaAddressBook> Add Classes</NavLink> </li>
+                                <li><NavLink to="/dashboard/myclasses" className='md:text-lg font-semibold text-white'><FaSchool className='text-black'></FaSchool> My Classes</NavLink> </li>
                             </> :
                                 <>
                                     <li><NavLink to="/dashboard/userhome" className='md:text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> User Home</NavLink></li>

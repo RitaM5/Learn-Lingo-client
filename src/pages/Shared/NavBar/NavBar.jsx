@@ -12,8 +12,8 @@ import useInstructor from '../../../hooks/useInstructor';
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
     // const [cart] = useCart();
-     const [isAdmin] = useAdmin();
-     const [isInstructor] = useInstructor();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -25,11 +25,13 @@ const NavBar = () => {
         <li><Link to="/instructor">Instructor</Link></li>
         <li><Link to="/classes">Classes</Link></li>
         {
-            isAdmin ? <li><Link to="/dashboard/adminhome">Dashboard</Link></li> :
-           isInstructor ? <li><Link to="/dashboard/instructorhome">Dashboard</Link></li> :
-            <li><Link to="/dashboard/userhome">Dashboard</Link></li> 
+            user && <>
+                {isAdmin ? <li><Link to="/dashboard/adminhome">Dashboard</Link></li> :
+                isInstructor ? <li><Link to="/dashboard/instructorhome">Dashboard</Link></li> :
+                <li><Link to="/dashboard/userhome">Dashboard</Link></li>}
+            </>
         }
-        
+
         <li>
             {/* <Link to="/dashboard/mycart">
                 <button className="btn gap-2">
