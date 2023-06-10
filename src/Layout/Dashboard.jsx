@@ -39,7 +39,7 @@ const Dashboard = () => {
                         <li><NavLink to="/instructor" className='md:text-lg font-semibold text-white'><FaChalkboardTeacher className='text-black'></FaChalkboardTeacher> Instructor</NavLink></li>
                     </ul>
                 </div>
-                <div className="w-full md:w-3/4 p-4">
+                <div className="w-full md:w-3/4">
                     <div className='font-poppins'>
                         <Outlet></Outlet>
                     </div>

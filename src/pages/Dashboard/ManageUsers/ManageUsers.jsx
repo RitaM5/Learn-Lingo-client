@@ -40,8 +40,8 @@ const ManageUsers = () => {
     }
     const handleMakeAdmin = user => {
         console.log(user);
-        setDisabledAdmins(prevDisabledButtons => ({
-            ...prevDisabledButtons,
+        setDisabledAdmins(prevDisabledAdmins => ({
+            ...prevDisabledAdmins,
             [user._id]: true
         }));
 
@@ -70,8 +70,8 @@ const ManageUsers = () => {
             <Helmet>
                 <title>Learn Lingo | Manage users</title>
             </Helmet>
-            <h3 className="text-lg font-poppins text-center text-pink-500 underline underline-offset-8 font-semibold my-4">Total Users: {users.length}</h3>
-            <div className="bg-base-100 shadow-lg my-8">
+            {/* <h3 className="text-lg font-poppins text-center text-pink-500 underline underline-offset-8 font-semibold my-4">Total Users: {users.length}</h3> */}
+            <div className="bg-base-100 shadow-lg">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead>
@@ -88,7 +88,7 @@ const ManageUsers = () => {
                         {
                             users.map((user, index) => <tr key={user._id} className='font-poppins'>
                                 <th>{index + 1}</th>
-                                <td>{user?.photoURL}</td>
+                                <td><img src={user?.photoURL} alt={user?.name} className="w-10 h-10 rounded-full" /></td>
                                 <td>{user?.name}</td>
                                 <td>{user?.email}</td>
                                 <td>{user?.role === 'admin' ? 'admin' : user?.role === 'instructor' ? 'instructor' : 'user'}
