@@ -11,7 +11,7 @@ const ManageUsers = () => {
         const res = await axiosSecure.get('/users')
         return res.data;
     })
-    const handleMakeAdmin = user => {
+    const handleMakeInstructor = user => {
         console.log(user);
         fetch(`https://summer-camp-server-dusky.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
@@ -31,9 +31,9 @@ const ManageUsers = () => {
                 }
             })
     }
-    const handleDelete = user => {
+    // const handleDelete = user => {
 
-    }
+    // }
 
     return (
         <div className="w-full">
@@ -62,9 +62,9 @@ const ManageUsers = () => {
                                 <td>{user.role === 'admin' ? 'admin' : user.role === 'instructor' ? 'instructor' : 'user'}
                                 </td>
                                 <td>
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-pink-500  text-white"><FaUserShield></FaUserShield></button>
+                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-pink-500  text-white"><FaUserShield></FaUserShield></button>
                                 </td>
-                                <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-500  text-white"><FaTrashAlt></FaTrashAlt></button></td>
+                                {/* <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-500  text-white"><FaTrashAlt></FaTrashAlt></button></td> */}
                             </tr>)
                         }
 
