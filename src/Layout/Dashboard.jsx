@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers, FaSchlix, FaSchool, FaBookOpen, FaChalkboardTeacher, FaAddressBook } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers, FaSchlix, FaSchool, FaBookOpen, FaChalkboardTeacher, FaAddressBook, FaBookReader } from 'react-icons/fa';
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
 import { Helmet } from 'react-helmet-async';
@@ -23,8 +23,8 @@ const Dashboard = () => {
                         {
                             isAdmin ? <>
                                 <li><NavLink to="/dashboard/adminhome" className='md:text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> Admin Home</NavLink></li>
-                                <li><NavLink to="/dashboard/manageusers" className='md:text-lg font-semibold text-white my-4'><FaUsers className='text-black'></FaUsers> Manage Users</NavLink></li>
-
+                                <li><NavLink to="/dashboard/manageusers" className='md:text-lg font-semibold text-white mt-4'><FaUsers className='text-black'></FaUsers> Manage Users</NavLink></li>
+                                <li><NavLink to="/dashboard/manageclasses" className='md:text-lg font-semibold text-white my-1'><FaBookReader className='text-black'></FaBookReader> Manage Classes</NavLink></li>
                             </> : isInstructor ? <>
                                 <li><NavLink to="/dashboard/instructorhome" className='md:text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> Instructor Home</NavLink></li>
                                 <li><NavLink to="/dashboard/addclasses" className='md:text-lg font-semibold text-white my-4'><FaAddressBook className='text-black'></FaAddressBook> Add Classes</NavLink> </li>
