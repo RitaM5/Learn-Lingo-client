@@ -22,15 +22,15 @@ const Dashboard = () => {
                     <ul className="menu font-poppins p-4 w-full">
                         {
                             isAdmin ? <>
-                                <li><NavLink to="/dashboard/adminhome"><FaHome></FaHome> Admin Home</NavLink></li>
-                                <li><NavLink to="/dashboard/manageusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
+                                <li><NavLink to="/dashboard/adminhome" className='text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> Admin Home</NavLink></li>
+                                <li><NavLink to="/dashboard/manageusers" className='text-lg font-semibold text-white my-4'><FaUsers className='text-black'></FaUsers> Manage Users</NavLink></li>
 
                             </> : isInstructor ? <>
-                                <li><NavLink to="/dashboard/instructorhome" className='inline-flex items-center gap-2 text-2xl font-semibold'><FaHome></FaHome> Instructor Home</NavLink></li>
+                                <li><NavLink to="/dashboard/instructorhome" className='text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> Instructor Home</NavLink></li>
                                 <li><NavLink to="/dashboard/addclasses" className='text-lg font-semibold text-white my-4'><FaAddressBook className='text-black'></FaAddressBook> Add Classes</NavLink> </li>
                             </> :
                                 <>
-                                    <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
+                                    <li><NavLink to="/dashboard/userhome" className='text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> User Home</NavLink></li>
                                 </>
                         }
                         <div className="divider"></div>

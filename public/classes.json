@@ -1,82 +1,79 @@
-{
-    "courses": [
-      {
-        "className": "English Conversation Practice",
-        "image": "https://i.ibb.co/dDkjBjP/english-conversation.jpg",
-        "instructorName": "Emily Johnson",
-        "instructorEmail": "emily@example.com",
-        "price": "89",
-        "status": "approve",
-        "seats": 20,
-        "feedback": "",
-        "enrolled": ""
-      },
-      {
-        "className": "Chinese for Beginners",
-        "image": "https://i.ibb.co/yfTD6zP/chinese-beginners.jpg",
-        "instructorName": "Li Wei",
-        "instructorEmail": "liwei@example.com",
-        "price": "99",
-        "status": "approve",
-        "seats": 35,
-        "feedback": "",
-        "enrolled": ""
-      },
-      {
-        "className": "Japanese Language Proficiency",
-        "image": "https://i.ibb.co/8Yfht9J/japanese-proficiency.jpg",
-        "instructorName": "Yuki Tanaka",
-        "instructorEmail": "yuki@example.com",
-        "price": "109",
-        "status": "approve",
-        "seats": 12,
-        "feedback": "",
-        "enrolled": ""
-      },
-      {
-        "className": "Korean Conversation and Culture",
-        "image": "https://i.ibb.co/3pyChQX/korean-conversation.jpg",
-        "instructorName": "Lee Min Ji",
-        "instructorEmail": "minji@example.com",
-        "price": "999",
-        "status": "approve",
-        "seats": 18,
-        "feedback": "",
-        "enrolled": ""
-      },
-      {
-        "className": "German Language and Culture",
-        "image": "https://i.ibb.co/tp1JXZM/german-language.jpg",
-        "instructorName": "Hans Müller",
-        "instructorEmail": "hans@example.com",
-        "price": "119",
-        "status": "approve",
-        "seats": 42,
-        "feedback": "",
-        "enrolled": ""
-      },
-      {
-        "className": "English Business Writing",
-        "image": "https://i.ibb.co/G0W9yMB/english-business-writing.jpg",
-        "instructorName": "Sarah Anderson",
-        "instructorEmail": "sarah@example.com",
-        "price": "99",
-        "status": "approve",
-        "seats": 50,
-        "feedback": "",
-        "enrolled": ""
-      },
-      {
-        "className": "Chinese Intermediate Level",
-        "image": "https://i.ibb.co/3ySj4R6/chinese-intermediate.jpg",
-        "instructorName": "Liu Xin",
-        "instructorEmail": "liuxin@example.com",
-        "price": "109",
-        "status": "approve",
-        "seats": 12,
-        "feedback": "",
-        "enrolled": ""
-      }
-    ]
+[
+  {
+    "className": "English Conversation Practice",
+    "image": "https://i.ibb.co/dDkjBjP/english-conversation.jpg",
+    "instructorName": "Emily Johnson",
+    "instructorEmail": "emily@example.com",
+    "price": "89",
+    "status": "approve",
+    "seats": 20,
+    "feedback": "",
+    "enrolled": ""
+  },
+  {
+    "className": "Chinese for Beginners",
+    "image": "https://i.ibb.co/yfTD6zP/chinese-beginners.jpg",
+    "instructorName": "Li Wei",
+    "instructorEmail": "liwei@example.com",
+    "price": "99",
+    "status": "approve",
+    "seats": 35,
+    "feedback": "",
+    "enrolled": ""
+  },
+  {
+    "className": "Japanese Language Proficiency",
+    "image": "https://i.ibb.co/8Yfht9J/japanese-proficiency.jpg",
+    "instructorName": "Yuki Tanaka",
+    "instructorEmail": "yuki@example.com",
+    "price": "109",
+    "status": "approve",
+    "seats": 12,
+    "feedback": "",
+    "enrolled": ""
+  },
+  {
+    "className": "Korean Conversation and Culture",
+    "image": "https://i.ibb.co/3pyChQX/korean-conversation.jpg",
+    "instructorName": "Lee Min Ji",
+    "instructorEmail": "minji@example.com",
+    "price": "999",
+    "status": "approve",
+    "seats": 18,
+    "feedback": "",
+    "enrolled": ""
+  },
+  {
+    "className": "German Language and Culture",
+    "image": "https://i.ibb.co/tp1JXZM/german-language.jpg",
+    "instructorName": "Hans Müller",
+    "instructorEmail": "hans@example.com",
+    "price": "119",
+    "status": "approve",
+    "seats": 42,
+    "feedback": "",
+    "enrolled": ""
+  },
+  {
+    "className": "English Business Writing",
+    "image": "https://i.ibb.co/G0W9yMB/english-business-writing.jpg",
+    "instructorName": "Sarah Anderson",
+    "instructorEmail": "sarah@example.com",
+    "price": "99",
+    "status": "approve",
+    "seats": 50,
+    "feedback": "",
+    "enrolled": ""
+  },
+  {
+    "className": "Chinese Intermediate Level",
+    "image": "https://i.ibb.co/3ySj4R6/chinese-intermediate.jpg",
+    "instructorName": "Liu Xin",
+    "instructorEmail": "liuxin@example.com",
+    "price": "109",
+    "status": "approve",
+    "seats": 12,
+    "feedback": "",
+    "enrolled": ""
   }
-  
+]

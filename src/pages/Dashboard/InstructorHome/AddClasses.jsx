@@ -49,54 +49,56 @@ const AddClasses = () => {
             <Helmet>
                 Learn Lingo | Add New Class
             </Helmet>
-            <p className='text-center my-8 text-2xl font-poppins font-semibold text-pink-500'>Add New Class</p>
-            <form onSubmit={handleSubmit(onSubmit)} className='w-1/2 mx-auto px-4 py-10 rounded-lg bg-base-200'>
-                <div className="form-control w-full mb-4">
-                    <label className="label">
-                        <span className="label-text font-semibold">Class Name</span>
-                    </label>
-                    <input type="text" placeholder="class name"
-                        {...register("className", { required: true, maxLength: 120 })}
-                        className="input input-bordered w-full " />
-                </div>
-                <div className="form-control w-full my-4">
-                    <label className="label">
-                        <span className="label-text font-semibold">Classes Image</span>
-                    </label>
-                    <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full " />
-                </div>
-                <div className="flex gap-2 my-4">
-                    <div className="form-control w-full ">
+            <div className='w-full overflow-x-auto'>
+                <p className='text-center my-8 text-2xl font-poppins font-semibold text-pink-500'>Add New Class</p>
+                <form onSubmit={handleSubmit(onSubmit)} className='w-full md:w-1/2 md:mx-auto px-4 py-10 rounded-lg bg-base-200'>
+                    <div className="form-control w-full mb-4">
                         <label className="label">
-                            <span className="label-text font-semibold">Instructor Name</span>
+                            <span className="label-text font-semibold">Class Name</span>
                         </label>
-                        <input type="text" placeholder="instructor name"
-                            {...register("instructorName", { required: true, maxLength: 120 })}
+                        <input type="text" placeholder="class name"
+                            {...register("className", { required: true, maxLength: 120 })}
                             className="input input-bordered w-full " />
                     </div>
-                    <div className="form-control w-full ">
+                    <div className="form-control w-full my-4">
                         <label className="label">
-                            <span className="label-text font-semibold">Instructor Email</span>
+                            <span className="label-text font-semibold">Classes Image</span>
                         </label>
-                        <input type="email" placeholder="instructor email"
-                            {...register("instructorEmail", { required: true, maxLength: 120 })}
-                            className="input input-bordered w-full " />
+                        <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full " />
                     </div>
-                </div>
-                <div className="form-control w-full my-4">
-                    <label className="label">
-                        <span className="label-text font-semibold">Available Seats</span>
-                    </label>
-                    <input type="number" {...register("seats", { required: true })} placeholder="Type here" className="input input-bordered w-full " />
-                </div>
-                <div className="form-control w-full my-4">
-                    <label className="label">
-                        <span className="label-text font-semibold">Price</span>
-                    </label>
-                    <input type="number" {...register("price", { required: true })} placeholder="Type here" className="input input-bordered w-full " />
-                </div>
-                <input className=" w-full rounded-lg  mt-4 bg-pink-500 py-2 text-white" type="submit" value="Add Class" />
-            </form>
+                    <div className="flex gap-2 my-4">
+                        <div className="form-control w-full ">
+                            <label className="label">
+                                <span className="label-text font-semibold">Instructor Name</span>
+                            </label>
+                            <input type="text" placeholder="instructor name"
+                                {...register("instructorName", { required: true, maxLength: 120 })}
+                                className="input input-bordered w-full " />
+                        </div>
+                        <div className="form-control w-full ">
+                            <label className="label">
+                                <span className="label-text font-semibold">Instructor Email</span>
+                            </label>
+                            <input type="email" placeholder="instructor email"
+                                {...register("instructorEmail", { required: true, maxLength: 120 })}
+                                className="input input-bordered w-full " />
+                        </div>
+                    </div>
+                    <div className="form-control w-full my-4">
+                        <label className="label">
+                            <span className="label-text font-semibold">Available Seats</span>
+                        </label>
+                        <input type="number" {...register("seats", { required: true })} placeholder="Type here" className="input input-bordered w-full " />
+                    </div>
+                    <div className="form-control w-full my-4">
+                        <label className="label">
+                            <span className="label-text font-semibold">Price</span>
+                        </label>
+                        <input type="number" {...register("price", { required: true })} placeholder="Type here" className="input input-bordered w-full " />
+                    </div>
+                    <input className=" w-full rounded-lg  mt-4 bg-pink-500 py-2 text-white" type="submit" value="Add Class" />
+                </form>
+            </div>
         </div>
     );
 };
