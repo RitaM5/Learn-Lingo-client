@@ -17,7 +17,7 @@ const AddClasses = () => {
 
         fetch(img_hosting_url, {
             method: 'POST',
-            body: formData
+            body: formData,
         })
             .then(res => res.json())
             .then(imgResponse => {

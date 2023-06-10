@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
-import { FaTrashAlt, FaUserCheck, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const ManageUsers = () => {
     const [axiosSecure] = useAxiosSecure();
-    const [disabled, setDisables] = useState(false);
+    const [disabledButtons, setDisabledButtons] = useState({});
+    const [disabledAdmins, setDisabledAdmins] = useState({});
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await axiosSecure.get('/users')
         return res.data;
     })
     const handleMakeInstructor = user => {
         console.log(user);
-        fetch(`https://summer-camp-server-dusky.vercel.app/users/admin/${user._id}`, {
+        setDisabledButtons(prevDisabledButtons => ({
+            ...prevDisabledButtons,
+            [user._id]: true
+        }));
+
+        fetch(`https://summer-camp-server-dusky.vercel.app/users/constructor/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -31,10 +36,34 @@ const ManageUsers = () => {
                     })
                 }
             })
-    }
-    // const handleDelete = user => {
 
-    // }
+    }
+    const handleMakeAdmin = user => {
+        console.log(user);
+        setDisabledAdmins(prevDisabledButtons => ({
+            ...prevDisabledButtons,
+            [user._id]: true
+        }));
+
+        fetch(`https://summer-camp-server-dusky.vercel.app/users/admin/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+
+    }
 
     return (
         <div className="w-full">
@@ -64,12 +93,12 @@ const ManageUsers = () => {
                                 <td>{user?.email}</td>
                                 <td>{user?.role === 'admin' ? 'admin' : user?.role === 'instructor' ? 'instructor' : 'user'}
                                 </td>
-                                <td>
-                                    <button disabled={!disabled} onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-pink-500  text-white"><FaUserShield></FaUserShield></button>
+                                <td className='inline-flex gap-3'>
+                                    <button disabled={disabledButtons[user._id]} onClick={() => handleMakeInstructor(user)} className="px-4 py-2 rounded-3xl bg-pink-500 text-sm text-white">Instructor</button>
+                                    <button disabled={disabledAdmins[user._id]} onClick={() => handleMakeAdmin(user)} className="px-4 py-2 rounded-3xl bg-green-500 text-sm text-white">Admin</button>
                                 </td>
-                                {/* <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-500  text-white"><FaTrashAlt></FaTrashAlt></button></td> */}
-                            </tr>)
-                        }
+                            </tr>
+                            )}
 
                     </tbody>
                 </table>
