@@ -12,7 +12,6 @@ const Instructor = () => {
         const res = await axiosSecure.get('/all-instructors')
         return res.data;
     })
-    console.log(instructors);
     return (
         <div className='my-container'>
             <Carousel>

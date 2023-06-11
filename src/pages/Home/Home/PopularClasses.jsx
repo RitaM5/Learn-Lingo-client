@@ -5,7 +5,7 @@ const PopularClasses = () => {
     const [courses, setCourses] = useState([]);
     const [axiosSecure] = useAxiosSecure()
     useEffect(() => {
-        axiosSecure.get('/classes')
+        axiosSecure.get('/popular-classes')
             .then(res => {
                 setCourses(res.data)
             })
