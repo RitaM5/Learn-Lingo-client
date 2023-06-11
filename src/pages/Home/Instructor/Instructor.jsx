@@ -4,7 +4,15 @@ import { Carousel } from 'react-responsive-carousel';
 import banner1 from "../../../assets/constructor/instruc-banner-1.jpg"
 import banner2 from "../../../assets/constructor/instruc-banner-2.jpg"
 import banner3 from "../../../assets/constructor/instruc-banner-3.jpg"
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 const Instructor = () => {
+    const [axiosSecure] = useAxiosSecure();
+    const { data: instructors = [], refetch } = useQuery(['all-instructors'], async () => {
+        const res = await axiosSecure.get('/all-instructors')
+        return res.data;
+    })
+    console.log(instructors);
     return (
         <div className='my-container'>
             <Carousel>
@@ -57,6 +65,36 @@ const Instructor = () => {
                     </div>
                 </div>
             </Carousel>
+            <div className='my-16'>
+                <h1 className='text-center text-3xl font-poppins font-semibold text-pink-500'>All Instructors</h1>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-14'>
+                    {
+                        instructors.map(instructor => <>
+                            <div className="card w-full bg-base-100 shadow-xl">
+                                <figure className="px-10 pt-10">
+                                    <img src={instructor?.instructorImage} alt="" className="rounded-full w-[200px] h-[200px]" />
+                                </figure>
+                                <div className="card-body font-poppins text-left">
+                                    <h2 className="card-title text-left">{instructor?.courses[0].instructorName}</h2>
+                                    <p className='text-blue-600'>{instructor?.courses[0].instructorEmail}</p>
+                                    <p><span className='font-semibold'>Courses Number:</span> {instructor?.courses.length}</p>
+                                    <div>
+                                        <p className='font-semibold'>Class Name:</p>
+                                        <ol>
+                                            {
+                                                instructor?.courses.map((course, index) => <li>{index + 1}. {course?.className}</li>)
+                                            }
+                                        </ol>
+                                    </div>
+                                    <div className="card-actions flex justify-end mt-4">
+                                        <button className="btn btn-primary">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </>)
+                    }
+                </div>
+            </div>
         </div>
     );
 };
