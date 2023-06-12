@@ -4,12 +4,8 @@ import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, Fa
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
 import { Helmet } from 'react-helmet-async';
-//import NavBar from '../pages/Shared/NavBar/NavBar';
-//import useCart from "../hooks/useCart";
-
 
 const Dashboard = () => {
-    //const [cart] = useCart();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
     return (
@@ -32,6 +28,7 @@ const Dashboard = () => {
                             </> :
                                 <>
                                     <li><NavLink to="/dashboard/userhome" className='md:text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> User Home</NavLink></li>
+                                    <li><NavLink to="/dashboard/myselectedclasses" className='md:text-lg font-semibold text-white'><FaSchool className='text-black'></FaSchool> My Selected Classes</NavLink> </li>
                                 </>
                         }
                         <div className="divider"></div>

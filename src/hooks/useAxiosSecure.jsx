@@ -9,7 +9,6 @@ import { config } from 'localforage';
 const axiosSecure = axios.create({
   baseURL: 'https://summer-camp-server-dusky.vercel.app', 
 });
-
 const useAxiosSecure = () => {
   const { logOut } = useAuth(); 
   const navigate = useNavigate(); 

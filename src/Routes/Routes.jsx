@@ -19,6 +19,8 @@ import InstructorRoute from "./InstructorRoute";
 import AddClasses from "../pages/Dashboard/InstructorHome/AddClasses";
 import ManageClasses from "../pages/Dashboard/AdminHome/ManageClasses";
 import MyClasses from "../pages/Dashboard/InstructorHome/MyClasses";
+import MySelectedClass from "../pages/Dashboard/UserHome/MySelectedClass";
+import Payment from "../pages/Dashboard/UserHome/Payment/Payment";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -55,6 +57,14 @@ export const router = createBrowserRouter([
                 path: 'userhome',
                 element: <UserHome></UserHome>
             },
+            {
+                path: 'myselectedclasses',
+                element: <MySelectedClass></MySelectedClass>
+            },
+            {
+                path: 'payment/:_id',
+                element: <Payment></Payment>
+              },
             //admin routes
             {
                 path: 'adminhome',

@@ -22,8 +22,8 @@ const PopularClasses = () => {
                                 {course?.className}
                                 <div className="badge badge-secondary">popular</div>
                             </h2>
-                            <p><span className='text-lg font-semibold'>Price:</span> {course.price}</p>
-                            <p className=""><span className='text-lg font-semibold'>Enrolled:</span> {course?.enrolled}</p>
+                            <p><span className='font-semibold'>Price:</span> {course.price}</p>
+                            <p className=""><span className=' font-semibold'>Enrolled:</span> {course?.enrolled}</p>
                         </div>
                     </div>
                 ))}

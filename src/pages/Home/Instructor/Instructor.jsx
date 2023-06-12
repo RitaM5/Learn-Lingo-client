@@ -6,6 +6,7 @@ import banner2 from "../../../assets/constructor/instruc-banner-2.jpg"
 import banner3 from "../../../assets/constructor/instruc-banner-3.jpg"
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet-async';
 const Instructor = () => {
     const [axiosSecure] = useAxiosSecure();
     const { data: instructors = [], refetch } = useQuery(['all-instructors'], async () => {
@@ -14,6 +15,9 @@ const Instructor = () => {
     })
     return (
         <div className='my-container'>
+            <Helmet>
+               <title> Learn Lingo | Instructors</title>
+            </Helmet>
             <Carousel>
                 <div>
                     <img src={banner1} />
