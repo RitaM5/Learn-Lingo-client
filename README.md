@@ -5,7 +5,7 @@
 ## Live Site Link: [https://summer-camp-client-80c4b.web.app/](https://summer-camp-client-80c4b.web.app/)
 
 ### Project Overview
-1. It's a Language learning platform online site. 
+1. It's a Language learning platform. 
 2. Here Students will enroll their preferred course through payment.
 3. This site has separate admin pannel for students, instructor and admin, which contain different information. And there is Authentication system.
 

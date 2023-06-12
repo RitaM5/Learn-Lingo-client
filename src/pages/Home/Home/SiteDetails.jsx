@@ -1,5 +1,6 @@
 import React from 'react';
 import cat from '../../../assets/cat.jpg';
+import { motion } from "framer-motion"
 const SiteDetails = () => {
     return (
         <div className='px-5 my-10'>
@@ -17,9 +18,9 @@ const SiteDetails = () => {
                     </p>
                     <button className='px-5 py-3 text-white  font-poppins bg-pink-500 rounded-3xl'>Start Free Trial</button>
                 </div>
-                <div className='md:flex md:justify-end items-center'>
+                <motion.div animate={{scale:1.5}} className='md:flex md:justify-end items-center'>
                     <img src={cat} className='w-full rounded' />
-                </div>
+                </motion.div>
             </div>
             <div className='my-10 mt-20'>
                 <h1 className='font-poppins text-3xl text-pink-500 font-semibold my-10 mt-8'>How do students learn languages with Learnlingo ?</h1>
