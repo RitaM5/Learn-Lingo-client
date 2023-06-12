@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -14,7 +14,9 @@ const Banner = () => {
                 <img src={img2} />
                 <div className="flex text-left w-full items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] absolute left-0 top-0 h-full">
                     <div className=''>
-                        <div className='text-white ml-2 space-y-5 w-full p-4 '>
+                        <div data-aos="fade-right"
+                            data-aos-offset="300"
+                            data-aos-easing="ease-in-sine" data-aos-duration="1000" className='text-white ml-2 space-y-5 w-full p-4 '>
                             <h2 className='text-5xl space-x-3 font-poppins'>
                                 <span className='text-pink-500'>#</span>4 Language Learning Website<br />and App for Students
                             </h2>

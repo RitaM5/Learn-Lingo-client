@@ -21,11 +21,11 @@ const Classes = () => {
 
     const handleSelect = classes => {
         if (disabledButtons.includes(classes._id)) {
-            return; 
-          }
-        
-          setDisabledButtons(prevDisabledButtons => [...prevDisabledButtons, classes._id]);
-        
+            return;
+        }
+
+        setDisabledButtons(prevDisabledButtons => [...prevDisabledButtons, classes._id]);
+
         const { className, image, price, _id } = classes;
         if (user && user.email) {
             const selectItem = { classItemId: _id, className, image, price, email: user.email }
@@ -70,7 +70,7 @@ const Classes = () => {
     return (
         <div className='my-container'>
             <Helmet>
-               <title> Learn Lingo | Classes</title>
+                <title> Learn Lingo | Classes</title>
             </Helmet>
             <Banner></Banner>
             <div className='my-16'>
@@ -78,8 +78,9 @@ const Classes = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-14'>
                     {
                         classes.map((classes) => <>
-                            <div key={classes?._id} className={`card w-full bg-base-100 shadow-xl ${classes?.seats === 0 ? 'bg-red-500 text-white' : ''
-                                }`}>
+                            <div data-aos="fade-up"
+                                data-aos-duration="2000" key={classes?._id} className={`card w-full bg-base-100 shadow-xl ${classes?.seats === 0 ? 'bg-red-500 text-white' : ''
+                                    }`}>
                                 <figure className="">
                                     <img src={classes?.image} alt="" className="h-[300px]" />
                                 </figure>

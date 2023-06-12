@@ -16,14 +16,14 @@ const Instructor = () => {
     return (
         <div className='my-container'>
             <Helmet>
-               <title> Learn Lingo | Instructors</title>
+                <title> Learn Lingo | Instructors</title>
             </Helmet>
             <Carousel>
                 <div>
                     <img src={banner1} />
                     <div className="flex text-center w-full items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] absolute left-0 top-0 h-full">
                         <div className='text-center mx-auto'>
-                            <div className='text-white ml-2  space-y-5 w-full p-4 '>
+                            <div data-aos="zoom-in" data-aos-duration="2000" className='text-white ml-2  space-y-5 w-full p-4 '>
                                 <h2 className='text-5xl font-semibold space-x-3 font-poppins'>
                                     Our Real Heroes
                                 </h2>
@@ -73,7 +73,8 @@ const Instructor = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-14'>
                     {
                         instructors.map(instructor => <>
-                            <div className="card w-full bg-base-100 shadow-xl">
+                            <div data-aos="fade-up"
+                                data-aos-duration="2000" className="card w-full bg-base-100 shadow-xl">
                                 <figure className="px-10 pt-10">
                                     <img src={instructor?.instructorImage} alt="" className="rounded-full w-[200px] h-[200px]" />
                                 </figure>

@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 import AuthProvider from './providers/AuthProvider.jsx'
 import { HelmetProvider } from 'react-helmet-async';
 import { router } from './Routes/Routes.jsx'
