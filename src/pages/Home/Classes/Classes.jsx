@@ -12,7 +12,6 @@ const Classes = () => {
     const [isInstructor] = useInstructor();
     const [classes, setClasses] = useState([]);
     const [disabledButtons, setDisabledButtons] = useState([]);
-  //  const [selectedClassIds, setSelectedClassIds] = useState([]);
     const navigate = useNavigate();
     const { user } = useAuth();
     axios.get('https://summer-camp-server-dusky.vercel.app/classes')
@@ -20,16 +19,9 @@ const Classes = () => {
             setClasses(res.data)
         });
 
-    // useEffect(() => {
-    //     const storedSelectedClassIds = localStorage.getItem('selectedClassIds');
-    //     if (storedSelectedClassIds) {
-    //         setSelectedClassIds(JSON.parse(storedSelectedClassIds));
-    //     }
-    // }, []);
-
     const handleSelect = classes => {
         if (disabledButtons.includes(classes._id)) {
-            return; // Do nothing if the button has already been clicked
+            return; 
           }
         
           setDisabledButtons(prevDisabledButtons => [...prevDisabledButtons, classes._id]);
@@ -48,7 +40,7 @@ const Classes = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
-                        // refetch(); // refetch cart to update the number of items in the cart
+                        // refetch(); 
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -56,8 +48,6 @@ const Classes = () => {
                             showConfirmButton: false,
                             timer: 1500
                         })
-                        // setSelectedClassIds(prevIds => [...prevIds, _id]);
-                        // localStorage.setItem('selectedClassIds', JSON.stringify([...selectedClassIds, _id]));
                     }
                 })
 

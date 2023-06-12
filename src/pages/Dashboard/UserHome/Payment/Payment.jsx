@@ -4,6 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from './CheckoutForm';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 // TODO: provide publishable Key
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
@@ -23,18 +24,27 @@ const Payment = () => {
 
     return (
         <div>
-
-            <div>
-                <p>Payment</p>
-                <p>please process</p>
+            <Helmet>
+                <title>
+                    Learn Lingo | Payment
+                </title>
+            </Helmet>
+            <div className='text-center font-poppins my-8'>
+                <p className='text-3xl text-pink-500 font-semibold'>Payment</p>
             </div>
-            <h2 className="text-3xl"> Teka o teka tumi uira uira aso...</h2>
-            <div>
-                <h3>Item: {item?.ClassName}</h3>
-                <h4>Price: {item?.price}</h4>
-                <Elements stripe={stripePromise}>
-                    <CheckoutForm item={item} price={parseFloat(item?.price).toFixed(2)} />
-                </Elements>
+            <div className='card w-full md:w-1/2  mx-auto space-y-4 bg-blue-100'>
+                <div className='pl-4 py-4 font-poppins'>
+                    <div className='mb-4 font-bold'>
+                        <p className='text-2xl font-semibold'>please process</p>
+                        <h3><span className='text-lg font-semibold'>Class Name:</span> {item?.className}</h3>
+                        <h4><span className='text-lg font-semibold'>Price:</span> {item?.price}</h4>
+                    </div>
+                    <div className='my-16'>
+                        <Elements stripe={stripePromise} className=''>
+                            <CheckoutForm item={item} price={parseFloat(item?.price).toFixed(2)} />
+                        </Elements>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -21,6 +21,8 @@ import ManageClasses from "../pages/Dashboard/AdminHome/ManageClasses";
 import MyClasses from "../pages/Dashboard/InstructorHome/MyClasses";
 import MySelectedClass from "../pages/Dashboard/UserHome/MySelectedClass";
 import Payment from "../pages/Dashboard/UserHome/Payment/Payment";
+import MyEnrolledClasses from "../pages/Dashboard/UserHome/MyEnrolledClasses";
+import PaymentHistory from "../pages/Dashboard/UserHome/PaymentHistory";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -64,7 +66,15 @@ export const router = createBrowserRouter([
             {
                 path: 'payment/:_id',
                 element: <Payment></Payment>
-              },
+            },
+            {
+                path: 'myenrolledclasses',
+                element: <MyEnrolledClasses></MyEnrolledClasses>
+            },
+            {
+                path: 'paymenthistory',
+                element: <PaymentHistory></PaymentHistory>
+            },
             //admin routes
             {
                 path: 'adminhome',
@@ -75,8 +85,8 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
             {
-               path: 'manageclasses',
-               element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
+                path: 'manageclasses',
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             //instructor
             {

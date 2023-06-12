@@ -8,8 +8,6 @@ import axios from 'axios';
 
 const MySelectedClass = () => {
     const [selected, refetch] = useSelect();
-    // how does reduce work!!!
-    // const total = selected.reduce((sum, item) => item.price + sum, 0);
 
     const handleDelete = item => {
         Swal.fire({
@@ -51,7 +49,7 @@ const MySelectedClass = () => {
             <Helmet>
                 <title>Learn Lingo | My Selected Classes</title>
             </Helmet>     
-            <div className="overflow-x-auto w-full">
+            <div className=" w-full">
                 <table className="table w-full">
                     {/* head */}
                     <thead className='bg-gray-200'>
