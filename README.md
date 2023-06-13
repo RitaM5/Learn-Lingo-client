@@ -18,9 +18,10 @@
 6. sweetalert2
 7. React-hook-form
 8. @headlessui/react
-9. react-helmet-async
-10. react-responsive-carousel
-11. Stripe
-12. JWT token
-13. Firebase Authentication
-14. Express.js & Mongodb
+9. React-helmet-async
+10. React-responsive-carousel
+11. Framer motion & AOS Animation
+12. Stripe
+13. JWT token
+14. Firebase Authentication
+15. Express.js & Mongodb
