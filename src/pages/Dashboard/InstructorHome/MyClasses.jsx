@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const MyClasses = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +61,9 @@ const MyClasses = () => {
 
     return (
         <div className='px-6 w-full mb-16'>
+            <Helmet>
+                <title>Learn Lingo | My Classes</title>
+            </Helmet>
             <h3 className="text-2xl font-poppins text-center text-pink-500 underline underline-offset-8 font-semibold py-4">My Class: {instructorClass.length}</h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full'>
                 {

@@ -20,8 +20,7 @@ const SignUp = () => {
             .then(result => {
 
                 const loggedUser = result.user;
-                console.log(loggedUser);
-
+            
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL}
@@ -48,7 +47,7 @@ const SignUp = () => {
                             })
 
                     })
-                    .catch(error => console.log(error))
+                    .catch(error => console.log())
             })
     };
     const password = watch('password', '');

@@ -14,7 +14,6 @@ const CheckoutForm = ({ item, price}) => {
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
-
     useEffect(() => {
         if (price > 0) {
             axiosSecure.post('/create-payment', { price })

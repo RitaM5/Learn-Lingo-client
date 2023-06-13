@@ -114,8 +114,8 @@ const ManageClasses = () => {
                                 <td>{singleClass?.price}</td>
                                 <td>{singleClass?.status}</td>
                                 <td className='inline-flex gap-3'>
-                                    <button disabled={singleClass?.status === 'approve'|| singleClass?.status === 'denied' && true} onClick={() => handleApprove(singleClass)} className="px-4 py-2 rounded-3xl bg-green-500 text-sm text-white">Approve</button>
-                                    <button disabled={singleClass?.status === 'denied' || singleClass?.status === 'approve' && true} onClick={() => handleDeny(singleClass)} className="px-4 py-2 rounded-3xl bg-red-500 text-sm text-white">Deny</button>
+                                    <button disabled={singleClass?.status === 'approve'|| singleClass?.status === 'denied' && true} onClick={() => handleApprove(singleClass)} className="px-4 py-2 rounded-lg bg-green-500 text-sm text-white">Approve</button>
+                                    <button disabled={singleClass?.status === 'denied' || singleClass?.status === 'approve' && true} onClick={() => handleDeny(singleClass)} className="px-4 py-2 rounded-lg bg-red-500 text-sm text-white">Deny</button>
                                 </td>
                             </tr>
                             )}
