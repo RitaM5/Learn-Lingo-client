@@ -23,16 +23,14 @@ const Payment = () => {
     }, []);
 
     return (
-        <div>
+        <div className='mb-16 mx-2'>
             <Helmet>
                 <title>
                     Learn Lingo | Payment
                 </title>
             </Helmet>
-            <div className='text-center font-poppins my-8'>
-                <p className='text-3xl text-pink-500 font-semibold'>Payment</p>
-            </div>
-            <div className='card w-full md:w-1/2  mx-auto space-y-4 bg-blue-100'>
+            <p className='text-center font-poppins text-2xl text-pink-500 font-semibold py-4'>Payment</p>
+            <div className=' card w-full lg:w-1/2  mx-auto space-y-4 bg-blue-100'>
                 <div className='pl-4 py-4 font-poppins'>
                     <div className='mb-4 font-bold'>
                         <p className='text-2xl font-semibold'>please process</p>

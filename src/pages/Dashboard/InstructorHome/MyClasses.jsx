@@ -10,9 +10,9 @@ const MyClasses = () => {
         return res.data;
     })
     return (
-        <div className='px-6 w-full overflow-x-auto'>
-            <h3 className="text-lg font-poppins text-center text-pink-500 underline underline-offset-8 font-semibold my-8">My Class: {instructorClass.length}</h3>
-            <div className='grid  overflow-x-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full'>
+        <div className='px-6 w-full mb-16'>
+            <h3 className="text-2xl font-poppins text-center text-pink-500 underline underline-offset-8 font-semibold py-4">My Class: {instructorClass.length}</h3>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full'>
                 {
                     instructorClass.map(classItem => <>
                         <div key={classItem._id} className="font-poppins card w-full bg-base-100 shadow-xl">

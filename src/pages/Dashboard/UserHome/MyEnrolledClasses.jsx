@@ -2,19 +2,23 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useAuth from '../../../hooks/useAuth';
 
 const MyEnrolledClasses = () => {
+    const {user} = useAuth()
     const [axiosSecure] = useAxiosSecure();
     const { data: enrolledClasses = [], refetch } = useQuery(['enrolledClasses'], async () => {
-        const res = await axiosSecure.get('/payments/classes')
+        const res = await axiosSecure.get(`/payments/${user.email}`)
         return res.data;
     });
+
     return (
         <div className="w-full">
         <Helmet>
             <title>Learn Lingo | My Enrolled Classes</title>
         </Helmet>     
-        <div className=" bg-base-100 shadow-lg rounded">   
+        <p className='text-center lg:hidden py-4 text-pink-500 text-2xl font-poppins font-semibold'>My Enrolled Classes</p>
+        <div className="bg-base-100 shadow-lg rounded overflow-x-auto ">   
             <table className="table w-full">
                 {/* head */}
                 <thead className='bg-blue-800'>
@@ -42,7 +46,6 @@ const MyEnrolledClasses = () => {
                             </td>
                         </tr>)
                     }
-
 
                 </tbody>
             </table>

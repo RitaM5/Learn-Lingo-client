@@ -13,8 +13,8 @@ const Dashboard = () => {
         <Helmet>
             Learn Lingo | Dashboard
         </Helmet>
-            <div className="flex  overflow-x-auto">
-                <div className="w-full md:w-1/4 min-h-screen bg-pink-500 p-4">
+            <div className="lg:flex grid grid-cols-1 gap-2 lg:gap-0">
+                <div className="w-full lg:w-1/4 lg:min-h-screen bg-pink-500 p-4">
                     <ul className="menu font-poppins p-4 w-full">
                         {
                             isAdmin ? <>
@@ -39,7 +39,7 @@ const Dashboard = () => {
                         <li><NavLink to="/instructor" className='md:text-lg font-semibold text-white'><FaChalkboardTeacher className='text-black'></FaChalkboardTeacher> Instructor</NavLink></li>
                     </ul>
                 </div>
-                <div className="w-full md:w-3/4">
+                <div className="w-full lg:w-3/4 lg:overflow-hidden">
                     <div className='font-poppins'>
                         <Outlet></Outlet>
                     </div>

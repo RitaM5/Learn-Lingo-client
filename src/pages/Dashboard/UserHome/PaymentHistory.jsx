@@ -2,20 +2,22 @@ import React from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
+import useAuth from '../../../hooks/useAuth';
 
 const PaymentHistory = () => {
+    const {user} = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const { data: paymentHistory = [], refetch } = useQuery(['paymentHistory'], async () => {
-        const res = await axiosSecure.get('/payments/history')
+        const res = await axiosSecure.get(`/payments/history/${user.email}`)
         return res.data;
     });
-    console.log(paymentHistory);
     return (
         <div className="w-full text-center">
             <Helmet>
                 <title>Learn Lingo | Payment History</title>
             </Helmet>
-            <div className=" bg-base-100 shadow-lg rounded">
+            <p className='text-center lg:hidden py-4 text-pink-500 text-2xl font-poppins font-semibold'>Payment History</p>
+            <div className=" overflow-x-auto bg-base-100 shadow-lg rounded">
                 <table className="table w-full">
                     {/* head */}
                     <thead className='bg-blue-800'>

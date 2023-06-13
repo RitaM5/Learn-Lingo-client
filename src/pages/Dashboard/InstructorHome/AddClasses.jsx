@@ -45,12 +45,12 @@ const AddClasses = () => {
 
     };
     return (
-        <div>
+        <div className='w-full mb-16'>
             <Helmet>
                 Learn Lingo | Add New Class
             </Helmet>
+            <p className='text-center  py-4 text-pink-500 text-2xl font-poppins font-semibold'>Add New Class</p>
             <div className='w-full overflow-x-auto'>
-                <p className='text-center my-8 text-2xl font-poppins font-semibold text-pink-500'>Add New Class</p>
                 <form onSubmit={handleSubmit(onSubmit)} className='w-full md:w-1/2 md:mx-auto px-4 py-10 rounded-lg bg-base-200'>
                     <div className="form-control w-full mb-4">
                         <label className="label">

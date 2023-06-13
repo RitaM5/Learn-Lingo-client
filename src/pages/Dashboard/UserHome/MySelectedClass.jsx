@@ -48,8 +48,9 @@ const MySelectedClass = () => {
         <div className="w-full">
             <Helmet>
                 <title>Learn Lingo | My Selected Classes</title>
-            </Helmet>     
-            <div className=" w-full">
+            </Helmet>
+            <p className='text-center lg:hidden py-4 text-pink-500 text-2xl font-poppins font-semibold'>My Selected Classes</p>     
+            <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
                     <thead className='bg-gray-200'>

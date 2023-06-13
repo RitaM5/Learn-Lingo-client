@@ -70,8 +70,8 @@ const ManageUsers = () => {
             <Helmet>
                 <title>Learn Lingo | Manage users</title>
             </Helmet>
-            {/* <h3 className="text-lg font-poppins text-center text-pink-500 underline underline-offset-8 font-semibold my-4">Total Users: {users.length}</h3> */}
-            <div className="bg-base-100 shadow-lg">
+            <p className='text-center lg:hidden py-4 text-pink-500 text-2xl font-poppins font-semibold'>Manage Users</p>
+            <div className=" overflow-x-auto bg-base-100 shadow-lg">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead>

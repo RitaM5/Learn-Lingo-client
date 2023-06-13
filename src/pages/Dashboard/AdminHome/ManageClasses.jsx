@@ -86,8 +86,8 @@ const ManageClasses = () => {
             <Helmet>
                 <title>Learn Lingo | Manage Classes</title>
             </Helmet>
-            {/*   <h3 className="text-lg font-poppins text-center text-pink-500 underline underline-offset-8 font-semibold my-4">All Classes: {classes?.length}</h3> */}
-            <div className="bg-base-100 shadow-lg ">
+            <p className='text-center lg:hidden py-4 text-pink-500 text-2xl font-poppins font-semibold'>Manage Classes</p>
+            <div className=" overflow-x-auto bg-base-100 shadow-lg ">
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr className='font-poppins text-lg text-white bg-blue-800 font-semibold'>
