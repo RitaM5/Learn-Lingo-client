@@ -27,25 +27,25 @@ const Dashboard = () => {
                     <ul className="menu font-poppins p-4 w-full">
                         {
                             isAdmin ? <>
-                                <li><NavLink to="/dashboard/adminhome" className='text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> Admin Home</NavLink></li>
-                                <li><NavLink to="/dashboard/manageusers" className='text-lg font-semibold text-white mt-4'><FaUsers className='text-black'></FaUsers> Manage Users</NavLink></li>
-                                <li><NavLink to="/dashboard/manageclasses" className='mt-2 text-lg font-semibold text-white my-1'><FaBookReader className='text-black'></FaBookReader> Manage Classes</NavLink></li>
+                                <li><NavLink to="/dashboard/adminhome" className='text-[20px] font-semibold text-white'><FaHome className='text-black'></FaHome> Admin Home</NavLink></li>
+                                <li><NavLink to="/dashboard/manageusers" className='text-[16px] font-semibold text-white mt-4'><FaUsers className='text-black'></FaUsers> Manage Users</NavLink></li>
+                                <li><NavLink to="/dashboard/manageclasses" className='mt-2 text-[16px] font-semibold text-white my-1'><FaBookReader className='text-black'></FaBookReader> Manage Classes</NavLink></li>
                             </> : isInstructor ? <>
-                                <li><NavLink to="/dashboard/instructorhome" className='text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> Instructor Home</NavLink></li>
-                                <li><NavLink to="/dashboard/addclasses" className='text-lg font-semibold text-white mt-4'><FaAddressBook className='text-black'></FaAddressBook> Add Classes</NavLink> </li>
-                                <li><NavLink to="/dashboard/myclasses" className='text-lg font-semibold text-white'><FaSchool className='text-black'></FaSchool> My Classes</NavLink> </li>
+                                <li><NavLink to="/dashboard/instructorhome" className='text-[20px] font-semibold text-white'><FaHome className='text-black'></FaHome> Instructor Home</NavLink></li>
+                                <li><NavLink to="/dashboard/addclasses" className='text-[16px] font-semibold text-white mt-4'><FaAddressBook className='text-black'></FaAddressBook> Add Classes</NavLink> </li>
+                                <li><NavLink to="/dashboard/myclasses" className='text-[16px] font-semibold text-white'><FaSchool className='text-black'></FaSchool> My Classes</NavLink> </li>
                             </> :
                                 <>
-                                    <li><NavLink to="/dashboard/userhome" className='text-2xl font-semibold text-white'><FaHome className='text-black'></FaHome> User Home</NavLink></li>
-                                    <li><NavLink to="/dashboard/myselectedclasses" className='text-lg font-semibold text-white'><FaSchool className='text-black'></FaSchool> My Selected Classes</NavLink> </li>
-                                    <li><NavLink to="/dashboard/myenrolledclasses" className='text-lg my-2 font-semibold text-white'><FaSchool className='text-black'></FaSchool> My Enrolled Classes</NavLink> </li>
-                                    <li><NavLink to="/dashboard/paymenthistory" className='text-lg my-2 font-semibold text-white'><FaSchool className='text-black'></FaSchool> Payment History</NavLink> </li>
+                                    <li><NavLink to="/dashboard/userhome" className='text-[20px] font-semibold text-white'><FaHome className='text-black'></FaHome> User Home</NavLink></li>
+                                    <li><NavLink to="/dashboard/myselectedclasses" className='text-[16px] font-semibold text-white'><FaSchool className='text-black'></FaSchool> My Selected Classes</NavLink> </li>
+                                    <li><NavLink to="/dashboard/myenrolledclasses" className='text-[16px] my-2 font-semibold text-white'><FaSchool className='text-black'></FaSchool> My Enrolled Classes</NavLink> </li>
+                                    <li><NavLink to="/dashboard/paymenthistory" className='text-[16px] my-2 font-semibold text-white'><FaSchool className='text-black'></FaSchool> Payment History</NavLink> </li>
                                 </>
                         }
                         <div className="divider"></div>
-                        <li><NavLink to="/" className='text-lg font-semibold text-white'><FaHome className='text-black'></FaHome> Home</NavLink> </li>
-                        <li><NavLink to="/classes" className='text-lg font-semibold text-white'><FaBookOpen className='text-black'></FaBookOpen> Classes</NavLink></li>
-                        <li><NavLink to="/instructor" className='text-lg font-semibold text-white'><FaChalkboardTeacher className='text-black'></FaChalkboardTeacher> Instructor</NavLink></li>
+                        <li><NavLink to="/" className='text-[16px] font-semibold text-white'><FaHome className='text-black'></FaHome> Home</NavLink> </li>
+                        <li><NavLink to="/classes" className='text-[16px] font-semibold text-white'><FaBookOpen className='text-black'></FaBookOpen> Classes</NavLink></li>
+                        <li><NavLink to="/instructor" className='text-[16px] font-semibold text-white'><FaChalkboardTeacher className='text-black'></FaChalkboardTeacher> Instructor</NavLink></li>
                     </ul>
                 </div>
                 <div className="w-full lg:w-3/4 lg:overflow-hidden">
