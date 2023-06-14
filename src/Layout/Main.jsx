@@ -17,7 +17,7 @@ const Main = () => {
         setTheme(theme === "dark" ? "light" : "dark")
     }
     return (
-        <div className='overflow-hidden bg-white dark:bg-black'>
+        <div className=' overflow-x-hidden bg-white dark:bg-black'>
             <NavBar handleThemeSwitch={handleThemeSwitch}></NavBar>
             <Outlet></Outlet>
             <ScrollRestoration />

@@ -18,7 +18,7 @@ const Instructor = () => {
             <Helmet>
                 <title> Learn Lingo | Instructors</title>
             </Helmet>
-            <Carousel>
+            <Carousel preventMovementUntilSwipeScrollTolerance={true} and swipeScrollTolerance={50}>
                 <div>
                     <img src={banner1} />
                     <div className="flex text-center w-full items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] absolute left-0 top-0 h-full">

@@ -59,7 +59,7 @@ const SignUp = () => {
             <div className="hero min-h-screen bg-base-200 my-container">
                 <div className='my-28'>
                 <h1 className="text-3xl font-bold text-pink-500 font-poppins mb-3">Signup now!</h1>
-                    <div className="shadow-2xl rounded-3xl card w-full md:w-[550px] bg-base-100 mx-auto">
+                    <div className="shadow-2xl rounded-3xl card w-full md:w-[550px] bg-base-100 mx-auto grid grid-cols-1 ">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control font-poppins">
                                 <label className="label">

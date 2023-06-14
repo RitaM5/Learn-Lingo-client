@@ -9,7 +9,7 @@ import img4 from '../../../assets/constructor/instruc-banner-3.jpg';
 
 const Banner = () => {
     return (
-        <Carousel>
+        <Carousel preventMovementUntilSwipeScrollTolerance={true} and swipeScrollTolerance={50}>
             <div>
                 <img src={img2} />
                 <div className="flex text-left w-full items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] absolute left-0 top-0 h-full">

@@ -40,18 +40,19 @@ const Login = () => {
             }
         }, [user]); */
     return (
-        <>
+         <>
             <Helmet>
                 <title>Learn Lingo | Login</title>
-            </Helmet>
+            </Helmet> 
+            {/*          */}
             <div className="hero min-h-screen bg-base-200 my-container">
-                <div className="hero-content flex-col gap-6 lg:flex-row-reverse mx-auto my-28 ">
-                    <div className="text-center lg:text-left w-full mt-3">
-                        <img className='rounded-3xl flex-shrink-0 ' src="https://media.tenor.com/p0G_bmA2vSYAAAAd/login.gif" alt="" srcset="" />
+                <div className="hero-content gap-6  mx-auto my-28 grid grid-cols-1 md:grid-cols-2">
+                    <div className="text-center md:col-start-2 lg:text-left w-full mt-14 ">
+                        <img className='rounded-3xl h-[500px]' src="https://media.tenor.com/p0G_bmA2vSYAAAAd/login.gif" alt="" srcset="" />
                     </div>
-                    <div className='card flex-shrink-0 w-full max-w-md'>
+                    <div className='card w-full md:col-start-1'>
                         <h1 className="text-3xl font-bold text-pink-500 font-poppins mb-3">Login now!</h1>
-                        <div className="shadow-2xl bg-base-100 rounded-3xl">
+                        <div className="shadow-2xl bg-base-100 rounded-3xl h-[500px]">
                             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                                 <div className="form-control font-poppins">
                                     <label className="label">

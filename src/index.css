@@ -13,3 +13,6 @@
 .slider li img{
   @apply h-[750px]
 }
+/* .div.carousel-root{
+ touch-action: pan-y;
+} */
