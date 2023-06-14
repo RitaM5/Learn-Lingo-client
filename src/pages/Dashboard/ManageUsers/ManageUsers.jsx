@@ -6,18 +6,11 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const ManageUsers = () => {
     const [axiosSecure] = useAxiosSecure();
-    const [disabledButtons, setDisabledButtons] = useState({});
-    const [disabledAdmins, setDisabledAdmins] = useState({});
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await axiosSecure.get('/users')
         return res.data;
     })
     const handleMakeInstructor = user => {
-        console.log(user);
-        setDisabledButtons(prevDisabledButtons => ({
-            ...prevDisabledButtons,
-            [user._id]: true
-        }));
 
         fetch(`https://summer-camp-server-dusky.vercel.app/users/constructor/${user._id}`, {
             method: 'PATCH'
@@ -39,11 +32,6 @@ const ManageUsers = () => {
 
     }
     const handleMakeAdmin = user => {
-        console.log(user);
-        setDisabledAdmins(prevDisabledAdmins => ({
-            ...prevDisabledAdmins,
-            [user._id]: true
-        }));
 
         fetch(`https://summer-camp-server-dusky.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
@@ -94,8 +82,8 @@ const ManageUsers = () => {
                                 <td>{user?.role === 'admin' ? 'admin' : user?.role === 'instructor' ? 'instructor' : 'user'}
                                 </td>
                                 <td className='inline-flex gap-3'>
-                                    <button disabled={disabledButtons[user._id]} onClick={() => handleMakeInstructor(user)} className="px-4 py-2 rounded-3xl bg-pink-500 text-sm text-white">Instructor</button>
-                                    <button disabled={disabledAdmins[user._id]} onClick={() => handleMakeAdmin(user)} className="px-4 py-2 rounded-3xl bg-green-500 text-sm text-white">Admin</button>
+                                    <button disabled={user?.role === 'instructor' || user?.role === 'admin' && true} onClick={() => handleMakeInstructor(user)} className="px-4 py-2 rounded-3xl bg-pink-500 text-sm text-white">Instructor</button>
+                                    <button disabled={user?.role === 'admin' || user?.role === 'instructor' && true} onClick={() => handleMakeAdmin(user)} className="px-4 py-2 rounded-3xl bg-green-500 text-sm text-white">Admin</button>
                                 </td>
                             </tr>
                             )}
