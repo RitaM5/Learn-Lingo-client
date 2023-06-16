@@ -79,9 +79,9 @@ const Instructor = () => {
                                     <img src={instructor?.instructorImage} alt="" className="rounded-full w-[200px] h-[200px]" />
                                 </figure>
                                 <div className="card-body font-poppins text-left">
-                                    <h2 className="card-title text-left">{instructor?.courses[0].instructorName}</h2>
-                                    <p className='text-blue-600'>{instructor?.courses[0].instructorEmail}</p>
-                                    <p><span className='font-semibold'>Courses Number:</span> {instructor?.courses.length}</p>
+                                    <h2 className="card-title text-left">{instructor?.courses[0]?.instructorName}</h2>
+                                    <p className='text-blue-600'>{instructor?.courses[0]?.instructorEmail}</p>
+                                    <p><span className='font-semibold'>Courses Number:</span> {instructor?.courses?.length}</p>
                                     <div>
                                         <p className='font-semibold'>Class Name:</p>
                                         <ol>
